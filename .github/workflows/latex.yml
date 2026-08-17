@@ -1,5 +1,8 @@
-# Compiles benchmark-paper/main.tex on push/PR and uploads the PDF as a build artifact.
-# Citation-key lint (T-1.9) is not implemented yet — scaffold only.
+# Compiles benchmark-paper/main.tex on push/PR and uploads the PDF as a build
+# artifact. Also lints that every \cite{key} resolves in refs.bib (T-1.9) --
+# this is the CI-time catch for the exact hallucinated-citation failure mode
+# T-1.4's Citation agent is designed to prevent at write time; this catches
+# it even if a manuscript PR and a refs.bib PR land out of sync.
 name: latex
 
 on:
@@ -7,8 +10,17 @@ on:
   pull_request:
 
 jobs:
+  check-citations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check every \cite key resolves in refs.bib
+        run: python3 .github/scripts/check_citations.py
+
   build:
     runs-on: ubuntu-latest
+    needs: check-citations
     steps:
       - uses: actions/checkout@v4
 
@@ -23,3 +35,9 @@ jobs:
         with:
           name: benchmark-paper
           path: benchmark-paper/main.pdf
+
+      - name: Lint LaTeX style (non-blocking)
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq chktex latexindent
+          cd benchmark-paper && chktex main.tex
