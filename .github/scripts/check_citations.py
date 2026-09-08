@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Fails if any \\cite{...} key in benchmark-paper/*.tex has no matching entry
-in benchmark-paper/refs.bib. See T-1.9 -- this is the CI-time version of the
+"""Fails if any \\cite{...} key in writing/**/*.tex has no matching entry
+in writing/benchmark-paper/refs.bib (the single Citation-agent-owned bib file). See T-1.9 -- this is the CI-time version of the
 hallucinated-citation countermeasure Citation/Literature-Review (T-1.4)
 already enforces at write time; this catches it even if refs.bib and the
 manuscript drift apart across separate PRs.
@@ -12,8 +12,8 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-TEX_GLOB = "benchmark-paper/**/*.tex"
-BIB_PATH = REPO_ROOT / "benchmark-paper" / "refs.bib"
+TEX_GLOB = "writing/**/*.tex"
+BIB_PATH = REPO_ROOT / "writing" / "benchmark-paper" / "refs.bib"
 
 # \cite, \citep, \citet, \citeauthor, starred/optional-arg variants, and
 # comma-separated multi-key citations (\cite{a,b,c}).

@@ -4,22 +4,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working in this
 
 ## What this repo is
 
-LaTeX manuscripts for the herbaria research team, plus the CI that compiles them and lints
-citations. **Slated to become `herbaria-artifacts`** (parent build-plan T-1.15): the current
-tree moves under `writing/`, and a sibling `experiment-artifacts/{dir}/{cycle_id}/` subtree
-becomes the git home for what experiment cycles produce (configs, job scripts, eval outputs,
-agent-written scripts). Until that lands, the layout below is the live one.
-
-It is a **submodule** of `gardoslab/herbaria-research-agent-design`, which holds
-the governing documents (`herbaria-agent-framework-v2.md`, `herbaria-build-plan-v2.md`); the
-agent code that writes into this repo lives in the sibling submodule
-`gardoslab/herbaria-orchestrator`.
+The git home for everything the herbaria research team's agents produce: experiment
+artifacts and writing material (manuscripts, papers, lab notebook). Formerly
+`herbaria-papers`; renamed and split under build-plan T-1.15. It is a **submodule** of
+`gardoslab/herbaria-research-agent-design`, which holds the governing documents
+(`herbaria-agent-framework-v2.md`, `herbaria-build-plan-v2.md`); the agent code that writes
+into this repo lives in the sibling submodule `gardoslab/herbaria-orchestrator`.
 
 | Path | Contents |
 |---|---|
-| `benchmark-paper/main.tex` | The benchmark paper. Compiles locally with `pdflatex main.tex`. |
-| `benchmark-paper/refs.bib` | The **only** citation source. Owned by the Citation/Literature-Review agent. |
-| `benchmark-paper/figures/` | Promoted figures only, in per-direction subfolders. |
+| `experiment-artifacts/{direction}/{cycle}/` | What each experiment cycle produces: configs, job scripts, small eval outputs, scripts. Layout and rules in `experiment-artifacts/README.md`. |
+| `writing/benchmark-paper/main.tex` | The benchmark paper. Compiles locally with `pdflatex main.tex`. |
+| `writing/benchmark-paper/refs.bib` | The **only** citation source. Owned by the Citation/Literature-Review agent. |
+| `writing/benchmark-paper/figures/` | Promoted figures only, in per-direction subfolders. |
+| `writing/notebook/{direction}/`, `writing/notebook/digest/` | Lab notebook: one entry per cycle per direction, plus the weekly cross-direction digest. Owned by the Writing agent. |
 | `.github/workflows/latex.yml` | Builds `main.pdf` on every push/PR and fails on any `\cite` key missing from `refs.bib`. |
 
 ## Branching and PRs
@@ -43,6 +41,10 @@ integrated into** — not for one-line fixes.
    own PR, and it must point at the *merged* commit on `main`, not at your topic-branch
    commit. Do not bump the pointer before the PR here is merged.
 
+Agent-owned branches follow their own naming, enforced by the orchestrator: Experimentation
+writes on `exp/{direction}/{cycle}` and Citation on `lit/refs-update`. Do not reuse those
+prefixes for human work.
+
 If you find uncommitted changes already sitting on `main` or a detached HEAD, leave them
 uncommitted.
 
@@ -51,6 +53,11 @@ uncommitted.
 These are the human gates from the framework doc (§6.2, §7, §8.1); the agents enforce them
 structurally and a human editing by hand should hold to the same lines.
 
+- **Each subtree has one kind of writer.** `experiment-artifacts/{direction}/{cycle}/` is
+  written by that direction's Experimentation agent, on that cycle's branch, and nowhere
+  else. `writing/notebook/` is written by the Writing agent. `writing/<paper>/` is written by
+  humans and, in Phase 3, by the Writing agent under its manuscript gate. No agent writes
+  outside its subtree; the orchestrator's scoping tests assert this.
 - **`refs.bib` has one writer.** Only the Citation/Literature-Review agent writes it, on a
   `lit/refs-update` branch via PR. Do not add an entry by hand to make a `\cite` resolve;
   add it through that path so it is verified and deduplicated by DOI. Never invent a
@@ -61,19 +68,17 @@ structurally and a human editing by hand should hold to the same lines.
 - **Merging a manuscript PR to `main` means "the draft is good", not "submit."** Submission to
   any external venue (arXiv, a conference) is a separate, explicitly human-gated action.
   Nothing in this repo or its CI submits anywhere.
-- **`figures/` holds promoted figures only.** Routine per-run plots stay in W&B; a figure
-  reaches `benchmark-paper/figures/{direction}/` only when a human, or the Writing agent under
-  its manuscript gate, promotes it for a paper. The Writing agent's manuscript-drafting
-  workflow is Phase 3 and not yet built — in Phase 1 no agent writes under `benchmark-paper/`
-  except Citation to `refs.bib`.
+- **`figures/` holds promoted figures only.** Routine per-cycle plots stay in W&B or in that
+  cycle's `experiment-artifacts/.../eval/`; a figure reaches `writing/<paper>/figures/{direction}/`
+  only when a human, or the Writing agent under its manuscript gate, promotes it for a paper.
+- **Small files only under `experiment-artifacts/`.** Checkpoints, full logs and predictions
+  stay on SCC and are referenced by path. Anything over a few MB does not belong in git.
 - **Build artifacts are ignored** (`*.aux`, `*.log`, `*.pdf`, `build/`, …). Do not commit a
   compiled PDF; CI attaches it as a build artifact.
 
 ## Commands
 
 ```bash
-cd benchmark-paper && pdflatex main.tex      # local compile (needs a TeX install)
+cd writing/benchmark-paper && pdflatex main.tex      # local compile (needs a TeX install)
+python3 .github/scripts/check_citations.py          # the citation lint, same as CI
 ```
-
-There is no local citation-lint command; the check runs in CI on every push and PR. To test
-it, open a PR — a `\cite` to a missing key fails `check-citations`.

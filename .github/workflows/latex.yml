@@ -1,5 +1,5 @@
-# Compiles benchmark-paper/main.tex on push/PR and uploads the PDF as a build
-# artifact. Also lints that every \cite{key} resolves in refs.bib (T-1.9) --
+# Compiles writing/benchmark-paper/main.tex on push/PR and uploads the PDF as a
+# build artifact. Also lints that every \cite{key} resolves in refs.bib (T-1.9) --
 # this is the CI-time catch for the exact hallucinated-citation failure mode
 # T-1.4's Citation agent is designed to prevent at write time; this catches
 # it even if a manuscript PR and a refs.bib PR land out of sync.
@@ -28,16 +28,16 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-          working_directory: benchmark-paper
+          working_directory: writing/benchmark-paper
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: benchmark-paper
-          path: benchmark-paper/main.pdf
+          path: writing/benchmark-paper/main.pdf
 
       - name: Lint LaTeX style (non-blocking)
         continue-on-error: true
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq chktex latexindent
-          cd benchmark-paper && chktex main.tex
+          cd writing/benchmark-paper && chktex main.tex
