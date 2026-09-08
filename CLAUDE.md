@@ -5,7 +5,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working in this
 ## What this repo is
 
 LaTeX manuscripts for the herbaria research team, plus the CI that compiles them and lints
-citations. It is a **submodule** of `gardoslab/herbaria-research-agent-design`, which holds
+citations. **Slated to become `herbaria-artifacts`** (parent build-plan T-1.15): the current
+tree moves under `writing/`, and a sibling `experiment-artifacts/{dir}/{cycle_id}/` subtree
+becomes the git home for what experiment cycles produce (configs, job scripts, eval outputs,
+agent-written scripts). Until that lands, the layout below is the live one.
+
+It is a **submodule** of `gardoslab/herbaria-research-agent-design`, which holds
 the governing documents (`herbaria-agent-framework-v2.md`, `herbaria-build-plan-v2.md`); the
 agent code that writes into this repo lives in the sibling submodule
 `gardoslab/herbaria-orchestrator`.
