@@ -1,0 +1,160 @@
+
+================================================================================
+SINGLE-TASK MODEL ANALYSIS
+================================================================================
+
+Overall Statistics:
+  Total samples: 167955
+  Accuracy: 0.7875
+  Correct: 132272
+  Incorrect: 35683
+
+--------------------------------------------------------------------------------
+Calculating Per-Class Metrics (Accuracy, Precision, Recall, F1)...
+--------------------------------------------------------------------------------
+
+================================================================================
+PER-CLASS ACCURACY DISTRIBUTION STATISTICS
+================================================================================
+
+Note: Statistics computed on 15334 classes with test samples.
+      Excluded 58 classes not present in test set (total=0).
+
+Accuracy Statistics:
+  Mean:       0.7620
+  Median:     0.8182
+  Std Dev:    0.2320
+  Variance:   0.0538
+  Min:        0.0000
+  Max:        1.0000
+  Kurtosis:   1.7493 (peakiness)
+  Skewness:   -1.3348
+
+Percentiles:
+  10th percentile: 0.4667
+  25th percentile: 0.6667
+  50th percentile: 0.8182
+  75th percentile: 0.9333
+  90th percentile: 1.0000
+  95th percentile: 1.0000
+  99th percentile: 1.0000
+
+Low Accuracy Classes:
+  Accuracy < 0.1: 449/15334 (2.93%)
+  Accuracy < 0.2: 504/15334 (3.29%)
+  Accuracy < 0.3: 728/15334 (4.75%)
+  Accuracy < 0.4: 1123/15334 (7.32%)
+  Accuracy < 0.5: 1583/15334 (10.32%)
+
+High Accuracy Classes:
+  Accuracy >= 0.90: 5224/15334 (34.07%)
+  Accuracy >= 0.95: 3373/15334 (22.00%)
+  Accuracy >= 0.99: 3282/15334 (21.40%)
+  Accuracy >= 1.00: 3282/15334 (21.40%)
+
+================================================================================
+PER-CLASS F1 SCORE DISTRIBUTION STATISTICS
+================================================================================
+
+F1 Score Statistics:
+  Mean:       0.7565
+  Median:     0.8000
+  Std Dev:    0.2117
+  Variance:   0.0448
+  Min:        0.0000
+  Max:        1.0000
+  Kurtosis:   2.9763 (peakiness)
+  Skewness:   -1.5694
+
+Percentiles:
+  10th percentile: 0.5000
+  25th percentile: 0.6667
+  50th percentile: 0.8000
+  75th percentile: 0.9091
+  90th percentile: 0.9697
+  95th percentile: 1.0000
+  99th percentile: 1.0000
+
+Low F1 Score Classes:
+  F1 < 0.1: 448/15334 (2.92%)
+  F1 < 0.2: 481/15334 (3.14%)
+  F1 < 0.3: 624/15334 (4.07%)
+  F1 < 0.4: 858/15334 (5.60%)
+  F1 < 0.5: 1370/15334 (8.93%)
+
+High F1 Score Classes:
+  F1 >= 0.90: 4123/15334 (26.89%)
+  F1 >= 0.95: 2232/15334 (14.56%)
+  F1 >= 0.99: 1384/15334 (9.03%)
+  F1 >= 1.00: 1384/15334 (9.03%)
+
+================================================================================
+MOST COMMON ERRORS (Top 20)
+================================================================================
+
+True Label                          Predicted                           Count     
+--------------------------------------------------------------------------------
+Brassicaceae Lepidium densiflorum   Brassicaceae Lepidium virginicum    10        
+Cactaceae Selenicereus pteranthus   Cactaceae Selenicereus grandiflorus 9         
+Caprifoliaceae Symphoricarpos mo... Caprifoliaceae Symphoricarpos albus 8         
+Boraginaceae Cryptantha clevelandii Boraginaceae Cryptantha microsta... 8         
+Polemoniaceae Phlox nana            Polemoniaceae Phlox mesoleuca       8         
+Cyperaceae Rhynchospora microcarpa  Cyperaceae Rhynchospora perplexa    8         
+Salviniaceae Salvinia auriculata    Salviniaceae Salvinia minima        8         
+Malvaceae Pachira aquatica          Malvaceae Pachira insignis          7         
+Asteraceae Melampodium cinereum     Asteraceae Melampodium leucanthum   7         
+Asteraceae Erigeron oreophilus      Asteraceae Erigeron neomexicanus    7         
+Lamiaceae Collinsonia canadensis    Lamiaceae Collinsonia punctata      7         
+Asteraceae Lorandersonia pulchella  Asteraceae Lorandersonia baileyi    7         
+Juncaceae Juncus saximontanus       Juncaceae Juncus ensifolius         7         
+Lycopodiaceae Lycopodium clavatum   Lycopodiaceae Lycopodium lagopus    6         
+Rosaceae Crataegus alabamensis      Rosaceae Crataegus senta            6         
+Lentibulariaceae Utricularia och... Lentibulariaceae Utricularia minor  6         
+Asteraceae Balsamorhiza hispidula   Asteraceae Balsamorhiza hookeri     6         
+Orchidaceae Platanthera blephari... Orchidaceae Platanthera ciliaris    6         
+Boraginaceae Amsinckia menziesii    Boraginaceae Amsinckia lycopsoides  6         
+Orchidaceae Spiranthes cernua       Orchidaceae Spiranthes ochroleuca   6         
+
+================================================================================
+EXAMPLE ERRORS (First 10)
+================================================================================
+
+1. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/067/51/06751__013.jpg
+   True: Polemoniaceae Gilia clokeyi
+   Predicted: Polemoniaceae Gilia ophthalmoides
+
+2. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/143/83/14383__110.jpg
+   True: Combretaceae Terminalia buceras
+   Predicted: Verbenaceae Duranta erecta
+
+3. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/075/62/07562__013.jpg
+   True: Hypericaceae Hypericum lobocarpum
+   Predicted: Hypericaceae Hypericum nudiflorum
+
+4. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/125/92/12592__099.jpg
+   True: Grossulariaceae Ribes hirtellum
+   Predicted: Grossulariaceae Ribes missouriense
+
+5. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/037/44/03744__036.jpg
+   True: Euphorbiaceae Cnidoscolus stimulosus
+   Predicted: Fabaceae Phaseolus vulgaris
+
+6. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/135/82/13582__037.jpg
+   True: Caryophyllaceae Silene douglasii
+   Predicted: Caryophyllaceae Silene laciniata
+
+7. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/004/21/00421__036.jpg
+   True: Amaryllidaceae Allium lemmonii
+   Predicted: Amaryllidaceae Allium siskiyouense
+
+8. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/038/05/03805__002.jpg
+   True: Lamiaceae Collinsonia canadensis
+   Predicted: Hydrangeaceae Hydrangea quercifolia
+
+9. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/056/65/05665__008.jpg
+   True: Asteraceae Erigeron tenuis
+   Predicted: Asteraceae Erigeron geiseri
+
+10. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/087/23/08723__103.jpg
+   True: Fabaceae Lupinus chamissonis
+   Predicted: Fabaceae Lupinus perennis
