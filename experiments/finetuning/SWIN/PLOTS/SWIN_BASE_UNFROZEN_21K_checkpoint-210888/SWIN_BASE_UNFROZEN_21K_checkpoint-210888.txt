@@ -1,0 +1,160 @@
+
+================================================================================
+SINGLE-TASK MODEL ANALYSIS
+================================================================================
+
+Overall Statistics:
+  Total samples: 50000
+  Accuracy: 0.7816
+  Correct: 39081
+  Incorrect: 10919
+
+--------------------------------------------------------------------------------
+Calculating Per-Class Metrics (Accuracy, Precision, Recall, F1)...
+--------------------------------------------------------------------------------
+
+================================================================================
+PER-CLASS ACCURACY DISTRIBUTION STATISTICS
+================================================================================
+
+Note: Statistics computed on 21745 classes with test samples.
+      Excluded 2150 classes not present in test set (total=0).
+
+Accuracy Statistics:
+  Mean:       0.7118
+  Median:     1.0000
+  Std Dev:    0.4054
+  Variance:   0.1644
+  Min:        0.0000
+  Max:        1.0000
+  Kurtosis:   -0.7941 (peakiness)
+  Skewness:   -0.9696
+
+Percentiles:
+  10th percentile: 0.0000
+  25th percentile: 0.5000
+  50th percentile: 1.0000
+  75th percentile: 1.0000
+  90th percentile: 1.0000
+  95th percentile: 1.0000
+  99th percentile: 1.0000
+
+Low Accuracy Classes:
+  Accuracy < 0.1: 4653/21745 (21.40%)
+  Accuracy < 0.2: 4655/21745 (21.41%)
+  Accuracy < 0.3: 4731/21745 (21.76%)
+  Accuracy < 0.4: 4977/21745 (22.89%)
+  Accuracy < 0.5: 5023/21745 (23.10%)
+
+High Accuracy Classes:
+  Accuracy >= 0.90: 12995/21745 (59.76%)
+  Accuracy >= 0.95: 12859/21745 (59.14%)
+  Accuracy >= 0.99: 12853/21745 (59.11%)
+  Accuracy >= 1.00: 12853/21745 (59.11%)
+
+================================================================================
+PER-CLASS F1 SCORE DISTRIBUTION STATISTICS
+================================================================================
+
+F1 Score Statistics:
+  Mean:       0.6878
+  Median:     0.8571
+  Std Dev:    0.3894
+  Variance:   0.1517
+  Min:        0.0000
+  Max:        1.0000
+  Kurtosis:   -0.7173 (peakiness)
+  Skewness:   -0.9514
+
+Percentiles:
+  10th percentile: 0.0000
+  25th percentile: 0.5000
+  50th percentile: 0.8571
+  75th percentile: 1.0000
+  90th percentile: 1.0000
+  95th percentile: 1.0000
+  99th percentile: 1.0000
+
+Low F1 Score Classes:
+  F1 < 0.1: 4653/21745 (21.40%)
+  F1 < 0.2: 4653/21745 (21.40%)
+  F1 < 0.3: 4706/21745 (21.64%)
+  F1 < 0.4: 4795/21745 (22.05%)
+  F1 < 0.5: 5024/21745 (23.10%)
+
+High F1 Score Classes:
+  F1 >= 0.90: 10227/21745 (47.03%)
+  F1 >= 0.95: 9725/21745 (44.72%)
+  F1 >= 0.99: 9646/21745 (44.36%)
+  F1 >= 1.00: 9646/21745 (44.36%)
+
+================================================================================
+MOST COMMON ERRORS (Top 20)
+================================================================================
+
+True Label                          Predicted                           Count     
+--------------------------------------------------------------------------------
+Polypodiaceae Phlebodium aureum     Polypodiaceae Phlebodium areolatum  5         
+Rosaceae Rubus flagellaris          Rosaceae Rubus allegheniensis       5         
+Fabaceae Lespedeza intermedia       Fabaceae Lespedeza violacea         5         
+Asteraceae Agoseris glauca          Asteraceae Agoseris aurantiaca      4         
+Fabaceae Trifolium rusbyi           Fabaceae Trifolium longipes         4         
+Poaceae Poa reflexa                 Poaceae Poa leptocoma               4         
+Poaceae Oplismenus compositus       Poaceae Oplismenus hirtellus        4         
+Lamiaceae Lycopus virginicus        Lamiaceae Lycopus uniflorus         4         
+Cyperaceae Carex umbellata          Cyperaceae Carex tonsa              4         
+Pteridaceae Pteris macilenta        Pteridaceae Pteris saxatilis        3         
+Asteraceae Grindelia squarrosa      Asteraceae Grindelia hirsutula      3         
+Nartheciaceae Aletris farinosa      Nartheciaceae Aletris lutea         3         
+Poaceae Poa nervosa                 Poaceae Poa pratensis               3         
+Boraginaceae Phacelia covillei      Hydrophyllaceae Phacelia covillei   3         
+Polygonaceae Persicaria setacea     Polygonaceae Persicaria hydropip... 3         
+Dryopteridaceae Elaphoglossum ap... Polypodiaceae Elaphoglossum apodum  3         
+Asteraceae Eurybia schreberi        Asteraceae Eurybia macrophylla      3         
+Montiaceae Lewisia triphylla        Montiaceae Erocallis triphylla      3         
+Violaceae Viola septentrionalis     Violaceae Viola sororia             3         
+Cyperaceae Carex muehlenbergii      Cyperaceae Carex vulpinoidea        3         
+
+================================================================================
+EXAMPLE ERRORS (First 10)
+================================================================================
+
+1. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2021/train/images/509/59/2163326.jpg
+   True: Vochysiaceae Qualea tessmannii
+   Predicted: Myrsinaceae Myrsine leucantha
+
+2. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/017/88/01788__093.jpg
+   True: Lamiaceae Ballota nigra
+   Predicted: Lamiaceae Agastache wrightii
+
+3. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/152/02/15202__023.jpg
+   True: Violaceae Viola bakeri
+   Predicted: Violaceae Viola praemorsa
+
+4. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2021/train/images/381/89/116555.jpg
+   True: Sapotaceae Micropholis sanctae-rosae
+   Predicted: Annonaceae Annona exsucca
+
+5. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2021/train/images/318/26/391190.jpg
+   True: Poaceae Koeleria macrantha
+   Predicted: Poaceae Poa fendleriana
+
+6. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/126/87/12687__077.jpg
+   True: Rosaceae Rosa woodsii
+   Predicted: Rosaceae Rosa acicularis
+
+7. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/043/12/04312__005.jpg
+   True: Convolvulaceae Cuscuta umbrosa
+   Predicted: Convolvulaceae Cuscuta ceanothi
+
+8. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/037/03/03703__048.jpg
+   True: Cleomaceae Cleomella hillmanii
+   Predicted: Cleomaceae Cleomella hillmannii
+
+9. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2022/train_images/044/30/04430__095.jpg
+   True: Cyperaceae Cyperus hermaphroditus
+   Predicted: Cyperaceae Cyperus mutisii
+
+10. /projectnb/herbdl/data/kaggle-herbaria/herbarium-2021/train/images/585/71/1347142.jpg
+   True: Loganiaceae Strychnos araguaensis
+   Predicted: Loganiaceae Strychnos peckii

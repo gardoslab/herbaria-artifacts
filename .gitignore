@@ -1,11 +1,38 @@
-*.aux
-*.log
-*.out
-*.pdf
-*.bbl
-*.blg
-*.fls
-*.fdb_latexmk
-*.synctex.gz
+# LaTeX build artifacts. Scoped to writing/ on purpose: *.log / *.out are also
+# legitimate small eval outputs under experiments/, and must not be ignored there.
+writing/**/*.aux
+writing/**/*.log
+writing/**/*.out
+writing/**/*.pdf
+writing/**/*.bbl
+writing/**/*.blg
+writing/**/*.fls
+writing/**/*.fdb_latexmk
+writing/**/*.synctex.gz
 build/
+
+# Run outputs: a direction's SCC workspace writes these, git never sees them
+runs/
+**/output/
+**/wandb/
+
+# Model weights and other heavy binaries
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.safetensors
+models--*
+
+# Environments and caches
+venv/
+.venv/
+__pycache__/
+
+# SGE job logs
+*.o[0-9]*
+*.e[0-9]*
+*.po[0-9]*
+*.pe[0-9]*
+
 .DS_Store
